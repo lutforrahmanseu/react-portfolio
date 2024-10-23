@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
@@ -10,13 +10,26 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
+import LoadingScreen from "./components/LoadingScreen";
 
 function AppContent() {
   const { isDarkMode } = useTheme();
+  const [isLoading, setIsLoading] = useState(true);
 
+useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <Router>
-      <div className={` min-h-screen ${isDarkMode ? "dark" : "light"}`}>
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <div className={` min-h-screen ${isDarkMode ? "dark" : "light"}`}>
         <Navbar />
         <main
           className={`relative  ${
@@ -33,6 +46,7 @@ function AppContent() {
         </main>
         <Footer />
       </div>
+      )}
     </Router>
   );
 }
