@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Optional: You can define custom utility classes for Roboto weights if needed */
+.font-roboto-light {
+  font-weight: 300;
+}
+
+.font-roboto-regular {
+  font-weight: 400;
+}
+
+.font-roboto-medium {
+  font-weight: 500;
+}
+
+.font-roboto-bold {
+  font-weight: 700;
+}
+
+@keyframes progress-ring-fill {
+  0% {
+    stroke-dashoffset: 251.2;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: progress-ring-fill 1.5s ease-out forwards;
+}
