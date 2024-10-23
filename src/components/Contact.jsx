@@ -202,7 +202,7 @@ export default function Contact() {
               )}
             </button>
 
-            {error && <p className="mt-2 text-red-700 text-center">{error}</p>}
+            {/* {error && <p className="mt-2 text-red-700 text-center">{error}</p>} */}
           </form>
         </div>
       </div>
