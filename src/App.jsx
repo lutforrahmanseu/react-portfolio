@@ -16,11 +16,10 @@ function AppContent() {
   const { isDarkMode } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-    // Simulate loading time
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Adjust this time as needed
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,22 +29,24 @@ useEffect(() => {
         <LoadingScreen />
       ) : (
         <div className={` min-h-screen ${isDarkMode ? "dark" : "light"}`}>
-        <Navbar />
-        <main
-          className={`relative  ${
-            isDarkMode ? "bg-transparent text-white" : "bg-gray-100 text-gray-900"
-          }`}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/project" element={<Project />} />
-            <Route path="/contact" element={<Contact />} /> 
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+          <Navbar />
+          <main
+            className={`relative  ${
+              isDarkMode
+                ? "bg-transparent text-white"
+                : "bg-gray-100 text-gray-900"
+            }`}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/project" element={<Project />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       )}
     </Router>
   );

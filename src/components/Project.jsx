@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaGlobe, FaGithub, FaYoutube } from "react-icons/fa";
+
+import image1 from "../assets/e-commerce.png";
+import image2 from "../assets/portfolio.png";
+
+import image3 from "../assets/doctor.png";
+import { Link } from "react-router-dom";
+
 const projects = {
   All: [
     {
       title: "E-commerce Website",
       description: "A full-stack e-commerce platform built with MERN stack.",
-      image:
-        "https://images.unsplash.com/photo-1663622438610-00a72c139d8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: image1,
       techStack: "React, Node.js, MongoDB",
+      liveLink: "https://react-tailwind-dashboards.vercel.app/",
+      githubLink: "https://github.com/lutforrahmanseu/react-tailwind-dashboard",
       details:
         "This is a detailed description of the E-commerce Website project, including features, challenges, and learnings.",
     },
@@ -16,9 +25,23 @@ const projects = {
       title: "Portfolio Website",
       description:
         "A personal portfolio website showcasing projects and skills.",
-      image:
-        "https://images.unsplash.com/photo-1702421092056-5347ff14feb5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Replace with your image URL
+      image: image2,
       techStack: "React, Tailwind CSS",
+      liveLink: "https://lutforrahman.vercel.app/",
+      githubLink: "https://github.com/lutforrahmanseu/portfolio",
+
+      details:
+        "This is a detailed description of the Portfolio Website project, showcasing my personal projects and skills.",
+    },
+    {
+      title: "Doctor Appointment",
+      description:
+        "A personal portfolio website showcasing projects and skills.",
+      image: image3,
+      techStack: "React, Tailwind CSS",
+      liveLink: "https://doctor-appointment-apps.vercel.app/",
+      githubLink: "https://github.com/lutforrahmanseu/doctor-appointment",
+
       details:
         "This is a detailed description of the Portfolio Website project, showcasing my personal projects and skills.",
     },
@@ -28,9 +51,10 @@ const projects = {
     {
       title: "E-commerce Website",
       description: "A full-stack e-commerce platform built with MERN stack.",
-      image:
-        "https://images.unsplash.com/photo-1664238753937-a2c7ddd1a4e4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      techStack: "React, Node.js, MongoDB",
+      image: image1,
+      techStack: "React js, Tailwind CSS",
+      liveLink: "https://react-tailwind-dashboards.vercel.app/",
+      githubLink: "https://github.com/lutforrahmanseu/react-tailwind-dashboard",
       details:
         "This project is a fully functional e-commerce platform, featuring user authentication, product management, and a shopping cart.",
     },
@@ -39,8 +63,7 @@ const projects = {
     {
       title: "Mobile App",
       description: "A cross-platform mobile app built with React Native.",
-      image:
-        "https://images.unsplash.com/photo-1702421091971-4f216f119f33?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fG5hdHVyYWwlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww",
+      image: image2,
       techStack: "React Native, Expo",
       details:
         "This mobile app was developed to work across both iOS and Android platforms, focusing on seamless user experience and performance.",
@@ -50,8 +73,7 @@ const projects = {
     {
       title: "UI/UX Design",
       description: "A sleek user interface design for a finance app.",
-      image:
-        "https://images.unsplash.com/photo-1667830011623-95300e3e3873?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: image3,
       techStack: "Figma, Adobe XD",
       details:
         "Designed a user-friendly and aesthetically pleasing interface for a finance application, emphasizing usability and clean design.",
@@ -118,12 +140,32 @@ export default function Project() {
                       <h3 className="text-2xl font-semibold mb-4">
                         {project.title}
                       </h3>
-                      <p className="mb-4">
-                        {project.description}
-                      </p>
-                      <p className="text-sm">
+                      <p className="mb-4">{project.description}</p>
+                      <p className="text-sm mb-4">
                         <strong>Tech Stack:</strong> {project.techStack}
                       </p>
+                      <div className="flex justify-between items-center">
+                        {project.liveLink && (
+                          <Link
+                            to={project.liveLink}
+                            rel="noopener noreferrer"
+                            className="flex items-center text-blue-500 hover:text-blue-600"
+                          >
+                            <FaGlobe className="mr-2" />
+                            Live Site
+                          </Link>
+                        )}
+                        {project.githubLink && (
+                          <Link
+                            to={project.githubLink}
+                            rel="noopener noreferrer"
+                            className="flex items-center text-gray-700 hover:text-gray-900"
+                          >
+                            <FaGithub className="mr-2" />
+                            GitHub
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -135,4 +177,3 @@ export default function Project() {
     </div>
   );
 }
-
