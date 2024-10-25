@@ -39,8 +39,8 @@ export default function Banner() {
   }, [role, roleIndex, isTyping]);
   const handleDownload = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "/Frontend-Developer-w_-React.pdf";
-    link.download = "frontend-developer-with-react.pdf";
+    link.href = "/Lutfor-Rahman.pdf";
+    link.download = "Lutfor-Rahman.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
